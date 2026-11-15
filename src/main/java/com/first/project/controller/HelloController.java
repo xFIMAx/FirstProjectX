@@ -1,5 +1,6 @@
 package com.first.project.controller;
 
+import com.first.project.model.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,9 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 
         @RequestMapping(value = "/hello", method = RequestMethod.GET)
         public ResponseEntity<?> hello(){
+
             return new ResponseEntity<>("Hello World!", HttpStatus.OK);
         }
 
+        @RequestMapping(value = "/test", method = RequestMethod.GET)
+        public ResponseEntity<?> test(){
+            User user = new User();
+            return new ResponseEntity<>(user.getName(), HttpStatus.OK);
+        }
     }
 
 
